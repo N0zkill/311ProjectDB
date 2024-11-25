@@ -2,6 +2,7 @@ package viewmodel;
 
 import dao.DbConnectivityClass;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,46 +15,47 @@ import model.Person;
 
 public class SignUpController {
 
-    public TextField usernameField;
-    public PasswordField passwordField;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
 
     public void createNewAccount(ActionEvent actionEvent) {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "Fields cannot be empty!");
+            return;
+        }
+
         try {
-            // Collect form data
-            String username = usernameField.getText();
-            String password = passwordField.getText();
-
-            // Validate fields
-            if (username.isEmpty() || password.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Both fields must be filled!");
-                alert.showAndWait();
-                return;
-            }
-
-            // Connect to database and insert new user
             DbConnectivityClass db = new DbConnectivityClass();
-            db.insertUser(new Person("FirstName", "LastName", "Department", "Major", username, ""));
+            db.insertUser(new Person("FirstName", "LastName", "Department", "Major", username, password));
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Account successfully created! You can now log in.");
-            alert.showAndWait();
-
-            // Redirect back to login page
+            showAlert(Alert.AlertType.INFORMATION, "Account created successfully!");
             goBack(actionEvent);
         } catch (Exception e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Error creating account. Please try again.");
-            alert.showAndWait();
+            showAlert(Alert.AlertType.ERROR, "Error creating account.");
         }
     }
 
+    @FXML
     public void goBack(ActionEvent actionEvent) {
+        loadScene(actionEvent, "/view/login.fxml");
+    }
+
+    private void showAlert(Alert.AlertType type, String message) {
+        Alert alert = new Alert(type);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void loadScene(ActionEvent actionEvent, String fxmlPath) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlPath));
             Scene scene = new Scene(root, 900, 600);
-            scene.getStylesheets().add(getClass().getResource("/css/lightTheme.css").toExternalForm());
             Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             window.setScene(scene);
             window.show();

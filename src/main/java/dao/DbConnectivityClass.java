@@ -54,7 +54,7 @@ public class DbConnectivityClass {
         boolean hasRegistredUsers = false;
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Class.forName("com.mysql.cj.jdbc.Driver");
 
             //First, connect to MYSQL server and create the database if not created
             Connection conn = DriverManager.getConnection(SQL_SERVER_URL, USERNAME, PASSWORD);

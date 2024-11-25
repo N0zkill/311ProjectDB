@@ -23,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -181,6 +182,8 @@ public class DB_GUI_Controller implements Initializable {
     protected void closeApplication() {
         System.exit(0);
     }
+
+
 
     @FXML
     protected void displayAbout() {
@@ -394,10 +397,27 @@ public class DB_GUI_Controller implements Initializable {
     }
 
     @FXML
-    protected void helpDoc() throws IOException {
-        File htmlFile = new File("docs/index.html");
-        Desktop.getDesktop().browse(htmlFile.toURI());
+    protected void helpDoc() {
+        Stage stage = new Stage(); // Create a new Stage for the pop-up
+
+        // Load the GIF
+        Image gifImage = new Image(getClass().getResource("/images/tenor.gif").toExternalForm());
+
+        // Add the GIF to an ImageView
+        ImageView gifView = new ImageView(gifImage);
+        gifView.setFitWidth(600); // Set the width of the GIF
+        gifView.setFitHeight(500); // Set the height of the GIF
+        gifView.setPreserveRatio(true); // Preserve the aspect ratio
+
+        // Create a Scene and add the ImageView to it
+        Scene scene = new Scene(new StackPane(gifView), 600, 500);
+
+        // Set up the Stage
+        stage.setScene(scene);
+        stage.setTitle("Help Documentation");
+        stage.showAndWait(); // Display the Stage and wait for it to close
     }
+
 
     @FXML
     protected void copyEntry() {

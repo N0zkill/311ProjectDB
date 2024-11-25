@@ -45,22 +45,22 @@
             </children>
         </HBox>
         <!-- Username Field -->
-        <Label id="emailLabel" fx:id="usernameLabel" alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Username" textFill="WHITE" translateX="-50" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label id="emailLabel" fx:id="usernameLabel" alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Username" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <VBox alignment="CENTER" translateX="-50" GridPane.columnIndex="2" GridPane.rowIndex="3" />
         <!-- Password Field -->
-        <VBox alignment="CENTER" translateX="-50" GridPane.columnIndex="2" GridPane.rowIndex="4">
+        <VBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <children>
-                <Label id="passwordLabel" fx:id="passwordLabel" alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Password" textFill="WHITE" />
+                <Label id="passwordLabel" fx:id="passwordLabel" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Password" textFill="WHITE" />
             </children>
         </VBox>
         <VBox alignment="CENTER" translateX="-50" GridPane.columnIndex="2" GridPane.rowIndex="5" />
         <!-- Login Button -->
-        <Button fx:id="loginBtn" alignment="CENTER" onAction="#login" style="-fx-background-color: #aadd55; -fx-border-color: BLACK;" styleClass="login_button" text="Login" textFill="WHITE" translateX="-50" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Button fx:id="loginBtn" alignment="CENTER" onAction="#login" style="-fx-background-color: #5bee00; -fx-border-color: BLACK;" styleClass="login_button" text="Login" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
         <!-- Sign Up Button -->
-        <Button fx:id="signUpButton" alignment="CENTER" onAction="#signUp" style="-fx-background-color: #ee6600; -fx-border-color: BLACK;" styleClass="login_button" text="Sign Up" textFill="WHITE" translateX="-50" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Button fx:id="signUpButton" alignment="CENTER" onAction="#signUp" style="-fx-background-color: #0047ee; -fx-border-color: BLACK;" styleClass="login_button" text="Sign Up" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7" />
         <!-- Error/Info Label -->
-        <Label fx:id="topLabel" alignment="CENTER" style="-fx-font-size: 21px; -fx-font-weight: bold;" text="Welcome" textFill="WHITE" translateX="-50" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-          <TextField fx:id="usernameTextField" alignment="CENTER" prefHeight="28.0" prefWidth="209.0" promptText="email_id@domain.edu" style="-fx-border-color: BLACK;" styleClass="login_text_field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-          <PasswordField fx:id="passwordField" prefHeight="28.0" prefWidth="289.0" promptText="Enter Password" style="-fx-border-color: BLACK;" styleClass="login_password_field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Label fx:id="topLabel" prefHeight="98.0" prefWidth="246.0" style="-fx-font-size: 21px; -fx-font-weight: bold;" text="Welcome" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+          <TextField fx:id="usernameTextField" alignment="CENTER" prefHeight="28.0" prefWidth="209.0" promptText="Farmingdale.edu " style="-fx-border-color: BLACK;" styleClass="login_text_field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+          <PasswordField fx:id="passwordField" alignment="CENTER" prefHeight="28.0" prefWidth="289.0" promptText="Enter Password" style="-fx-border-color: BLACK;" styleClass="login_password_field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
     </children>
 </GridPane>
